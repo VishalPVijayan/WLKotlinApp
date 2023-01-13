@@ -10,5 +10,11 @@ abstract class RoomDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     abstract  fun insertContentDetails(contentDetails: PicsumData)
 
+    @Query( "SELECT * FROM picsumtable")
+    abstract fun getContentDetails() : LiveData<List<PicsumData>>
+
+    @Query( "SELECT * FROM picsumtable")
+    abstract fun getContentDetailsOffline() : List<PicsumData>
+
 }
 

@@ -15,5 +15,4 @@ data class PicsumData(
     val download_url: String?,
     val url: String
 
-
 )

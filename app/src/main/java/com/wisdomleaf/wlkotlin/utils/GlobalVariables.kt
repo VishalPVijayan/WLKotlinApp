@@ -12,10 +12,6 @@ class GlobalVariables : Application(){
         @JvmField
         var APP_END_URL: String? = null
 
-
-
-
-
     }
 
 }

@@ -36,6 +36,13 @@ class DataRepository(
                 Log.d(" NETWORK", result.body()!![i].toString())
 
             }
+        } else {
+            val contentdetailss = database.wolfDao().getContentDetailsOffline()
+            val contentlist = contentdetailss
+            for (i in 0 until contentlist.size) {
+                mutualableData.postValue(contentlist[i])
+                Log.d("DATABASE", "\n" + contentlist[i].toString())
+            }
         }
     }
 

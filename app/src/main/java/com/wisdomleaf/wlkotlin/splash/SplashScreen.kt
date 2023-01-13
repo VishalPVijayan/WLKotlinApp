@@ -10,12 +10,15 @@ import android.view.animation.AnimationUtils
 import android.widget.ImageView
 import com.wisdomleaf.wlkotlin.MainActivity
 import com.wisdomleaf.wlkotlin.R
+import com.wisdomleaf.wlkotlin.utils.GlobalVariables
 
 @SuppressLint("CustomSplashScreen")
 class SplashScreen : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash_screen)
+
+        GlobalVariables.APP_BASE_URL = "https://picsum.photos/"
 
 
         val backgroundImage: ImageView = findViewById(R.id.iv_splashScreen)

@@ -28,7 +28,8 @@ class DataRepository(
 
         apiInterface = RetrofitClient.getInstance().create(Api_Interface::class.java)
 
-        val result = apiInterface.getPicsum(GlobalVariables.APP_END_URL)
+//        val result = apiInterface.getPicsum(GlobalVariables.APP_END_URL)
+        val result = apiInterface.getPicsum("v2/list?page=2&limit=20")
         Log.d("NETWORK", result.body().toString())
         if (result.body() != null) {
             for (i in 0 until result.body()!!.size) {

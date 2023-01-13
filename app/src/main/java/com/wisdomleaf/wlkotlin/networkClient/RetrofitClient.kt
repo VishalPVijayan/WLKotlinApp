@@ -8,8 +8,12 @@ import retrofit2.converter.gson.GsonConverterFactory
 object RetrofitClient : Interceptor {
     fun getInstance() : Retrofit {
 
+        GlobalVariables.APP_BASE_URL = "https://picsum.photos/"
+//        GlobalVariables.APP_END_URL = "v2/list?"
+        GlobalVariables.APP_END_URL = "v2/list?page=2&limit=20"
+
         return Retrofit.Builder()
-            .baseUrl(GlobalVariables.APP_BASE_URL)
+            .baseUrl("https://picsum.photos/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }

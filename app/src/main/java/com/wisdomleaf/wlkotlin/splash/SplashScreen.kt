@@ -18,11 +18,6 @@ class SplashScreen : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash_screen)
 
-        //Assigning BASE URL & END URL globally
-        GlobalVariables.APP_BASE_URL = "https://picsum.photos/"
-//        GlobalVariables.APP_END_URL = "v2/list?"
-        GlobalVariables.APP_END_URL = "v2/list?page=2&limit=20"
-
 
         val backgroundImage: ImageView = findViewById(R.id.iv_splashScreen)
         val slideAnimation = AnimationUtils.loadAnimation(this, R.anim.slide_animation)

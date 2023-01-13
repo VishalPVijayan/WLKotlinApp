@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">WL Kotlin App</string>
+    <string name="developed">Developed for test by Vishal P Vijayan</string>
 </resources>

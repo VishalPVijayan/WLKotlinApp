@@ -7,13 +7,22 @@
     android:background="@drawable/rectangle_frame"
     android:padding="@dimen/_10sdp"
     android:layout_margin="@dimen/_10sdp"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_width="@dimen/_250sdp"
+    android:layout_height="@dimen/_250sdp">
+
+    <ImageView
+        android:id="@+id/btnDismiss"
+        android:layout_width="@dimen/_40sdp"
+        android:layout_height="@dimen/_40sdp"
+        android:background="@color/white"
+        android:src="@drawable/ic_cancel"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageBadge" />
 
     <ImageView
         android:id="@+id/imageBadge"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_250sdp"
+        android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -28,7 +37,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="36dp"
-        android:text="id"
+        android:text="@string/id"
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@+id/imageBadge" />
@@ -41,7 +50,7 @@
         android:id="@+id/txtAuthor"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="author"
+        android:text="@string/author"
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="@+id/imageBadge"
         app:layout_constraintEnd_toEndOf="parent"

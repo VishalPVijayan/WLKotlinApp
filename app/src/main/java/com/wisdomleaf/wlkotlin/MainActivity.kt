@@ -1,11 +1,15 @@
 package com.wisdomleaf.wlkotlin
 
+import android.app.Activity
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.ImageView
+import android.widget.Toast
 import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -16,6 +20,7 @@ import com.miko.wlkotlin.adapter.DataCollectionAdapter
 import com.miko.wlkotlin.viewmodel.DataViewModel
 import com.miko.wlkotlin.viewmodel.DataViewModelFactory
 import com.wisdomleaf.wlkotlin.database.AppDatabase
+import com.wisdomleaf.wlkotlin.dialog.DataDialog
 import com.wisdomleaf.wlkotlin.room.PicsumData
 import com.wisdomleaf.wlkotlin.utils.AppConstants
 import com.wisdomleaf.wlkotlin.utils.GlobalVariables
@@ -23,17 +28,21 @@ import com.wisdomleaf.wlkotlin.utils.MyApplication
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
+
 var rv_dataholder: RecyclerView? = null
 var container: SwipeRefreshLayout? = null
 private lateinit var dataViewModel: DataViewModel
 private lateinit var database: AppDatabase
 var list: List<PicsumData>? = null
+var authorName: String? = null
 
 class MainActivity : AppCompatActivity() {
     @RequiresApi(Build.VERSION_CODES.M)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+
 
         container = findViewById(R.id.container);
         rv_dataholder = findViewById(R.id.rv_dataholder);
@@ -95,6 +104,17 @@ class MainActivity : AppCompatActivity() {
 
                 adapter!!.setOnClickListerner(object : DataCollectionAdapter.onItemClickListerner {
                     override fun onItemClick(position: Int) {
+
+                        authorName = list!![position].author.toString()
+                        GlobalVariables.AUTHOR_NAME = list!![position].author.toString()
+                        GlobalVariables.IMAGE_URL = list!![position].download_url.toString()
+                        GlobalVariables.TILE_ID = list!![position].id.toString()
+
+
+                        Toast.makeText(applicationContext, "" + authorName, Toast.LENGTH_SHORT)
+                            .show()
+
+                        DataDialog().show(supportFragmentManager, AppConstants.fragment)
 
 
                     }

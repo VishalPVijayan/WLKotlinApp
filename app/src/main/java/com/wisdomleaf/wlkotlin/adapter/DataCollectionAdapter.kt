@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.wisdomleaf.wlkotlin.R
 import com.wisdomleaf.wlkotlin.room.PicsumData
+import com.wisdomleaf.wlkotlin.utils.AppConstants
 
 
 class DataCollectionAdapter(private val mList: List<PicsumData>) :
@@ -42,8 +43,8 @@ class DataCollectionAdapter(private val mList: List<PicsumData>) :
         val ItemsViewModel = mList[position]
         pos = position
         Glide.with(context!!).load(ItemsViewModel.download_url).into(holder.imageBadge)
-        holder.txtAuthor.text = ItemsViewModel.author
-        holder.txtId.text = ItemsViewModel.id
+        holder.txtAuthor.text = AppConstants.author+" "+ItemsViewModel.author
+        holder.txtId.text = AppConstants.id+" "+ItemsViewModel.id
 
 
     }
